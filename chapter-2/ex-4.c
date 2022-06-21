@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+#define MAX 1000
+
+void squeeze(char str1[], char str2[]);
+
+int main(void)
+{
+    char str1[MAX], str2[MAX];
+    scanf("%s %s", str1, str2);
+    squeeze(str1, str2);
+    printf("%s", str1);
+    return 0;
+}
+
+void squeeze(char str1[], char str2[])
+{
+    int i, j, k;
+    for (k = 0; str2[k] != '\0'; ++k){
+        for (i = j = 0; str1[i] != '\0'; ++i){
+            if (str1[i] != str2[k]){
+                str1[j++] = str1[i];
+            }
+        }
+        str1[j] = '\0';
+    }
+}
